@@ -27,10 +27,11 @@
                 imgs: []
             }
         },
-        created() {
+        created() {//创建之后向后台要数据，imgs[]为空数组
+            this.getBannerImgs()
             //通过axios向后端要数据，其中包括swiper中的图片路径，把图片路径修改this.imgs
         },
-        mounted() {
+        updated() {// 数据修改触发
             //以下代码，要操作dom
             // created，项目创建后
             // mounted，挂载之后（vue实例挂载到真实dom对象上），当vue实例挂载dom之后，在实例中才有真实dom存在
@@ -38,7 +39,6 @@
                 // loop: true,
                 autoplay: true
             })
-            this.getBannerImgs()
         },
         methods: {
             async getBannerImgs() {//异步
